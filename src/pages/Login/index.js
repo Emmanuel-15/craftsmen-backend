@@ -12,6 +12,8 @@ import axios from '../../shared/helper/apiHelper';
 import './style.css';
 import Footer from "../../shared/layout/commonAssets/footer";
 import Loader from "../../shared/sharedComponents/Loader";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 export default function Login() {
 
@@ -53,6 +55,32 @@ export default function Login() {
 
                     console.log("Exception: ", e);
                     setLoading(false);
+
+                    if (e && e.response && e.response.data && e.response.data.err_msg == "INVALID_EMAIL_OR_PASSWORD") {
+                        toast.error('Invalid username or password.', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
+                    } else {
+                        toast.error('Something went wrong please try again after some time.', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
+                    }
+
+
                 })
         } else {
             simpleValidator.current.showMessages();
@@ -60,6 +88,18 @@ export default function Login() {
     }
 
     return (<>
+        <ToastContainer
+            position="top-right"
+            // autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+        />
         <Helmet>
             <meta charSet="utf-8" />
             <title>Login - Craftsmen</title>
