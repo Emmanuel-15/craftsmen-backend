@@ -104,16 +104,29 @@ export default function ServicesList() {
             .catch(e => {
                 console.log("Exception: ", e);
                 setLoading(false);
-                toast.error('Something went wrong please try again after some time.', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
+                if (e && e.response && e.response.data && e.response.data.err_msg == 'SERVICE_ID_IN_USE') {
+                    toast.error('Service already in use.', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                } else {
+                    toast.error('Something went wrong please try again after some time.', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
             })
     }
 
