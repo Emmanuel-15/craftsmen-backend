@@ -105,6 +105,29 @@ export default function ServicesType() {
             .catch(e => {
                 console.log("Exception: ", e);
                 setLoading(false);
+                if (e && e.response && e.response.data && e.response.data.err_msg == "SERVICE_TYPE_ALREADY_IN_USE") {
+                    toast.error('Service type already in use.', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                } else {
+                    toast.error('Something went wrong please try again after some time.', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
             })
     }
 
