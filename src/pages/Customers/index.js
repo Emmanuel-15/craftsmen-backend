@@ -148,7 +148,7 @@ export default function Customers() {
                                                                 <span className="me-2">
                                                                     {
                                                                         el.userImage ?
-                                                                            <img src={getImagePath(el.userImage)} className="rounded-circle" style={{ width: 25, height: 25 }} alt="Avatar" loading="lazy" />
+                                                                            <img src={getImagePath(el.userImage)} className="rounded-circle" style={{ width: 25, height: 25 }} alt="" loading="lazy" /> //alt="Avatar" removed this attribute cause on along with not found img it used to print Avtar.
                                                                             :
                                                                             <i style={{ fontSize: 25 }} className="far fa-user-circle"></i>
                                                                     }

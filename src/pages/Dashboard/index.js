@@ -165,7 +165,7 @@ export default function Dashboard() {
                                 <span className="mask bg-gradient-dark"></span>
                                 <div className="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
                                     <h5 className="text-white font-weight-bolder mb-4 pt-2">About Craftsmen</h5>
-                                    <p className="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of.</p>
+                                    <p className="text-white">Craftsmen is a new organization started in the year 2023. Craftsmen provides you various services out of which you can select the services and book a contractors.</p>
                                     {/* <a className="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="/">
                                         Read More
                                         <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
