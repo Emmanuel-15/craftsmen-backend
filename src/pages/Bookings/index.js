@@ -38,6 +38,7 @@ export default function Bookings() {
         axios
             .get('/getBookingsList')
             .then(op => {
+                console.log("I am op: ", op)
                 setLoading(false);
                 if (!_.isEmpty(op) && !_.isEmpty(op.data) && !_.isEmpty(op.data.result)) {
                     setBookingsList(op.data.result);
@@ -143,6 +144,7 @@ export default function Bookings() {
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Bookings Date</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Service Name</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Unit Price</th>
+                                                <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Booking Address</th>
                                                 <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                                                 <th className="text-secondary opacity-7"></th>
                                             </tr>
@@ -184,6 +186,7 @@ export default function Bookings() {
                                                                     <div className="text-success"><b>Discount: </b>{el.discountPrice}</div>
                                                                 </div>
                                                             </td>
+                                                            <td><div className="text-xs">{el.bookingAddress}</div></td>
                                                             <td>
                                                                 <span className="text-secondary text-xs font-weight-bold px-3">
                                                                     {el.bookingStatus}
